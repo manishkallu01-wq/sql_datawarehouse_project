@@ -1,4 +1,4 @@
-# Modern SQL Server Data Warehouse — Medallion Architecture
+# 🏗️ Modern SQL Server Data Warehouse — Medallion Architecture
 
 > End-to-end **Data Engineering** project implementing a **Bronze → Silver → Gold** warehouse on SQL Server, with source ingestion, data cleansing, cross-system integration, dimensional modeling, data-quality controls, and analytics-ready SQL.
 
@@ -10,7 +10,7 @@ This repository covers the complete lifecycle of a batch analytical warehouse:
 
 The focus is the engineering work that sits behind reliable reporting: preserving raw source data, applying deterministic transformation rules, integrating systems, modeling business entities, and validating the resulting warehouse.
 
-## What The implementation covers
+## 🎯 What The implementation covers
 
 - Designing a layered **medallion architecture** in SQL Server
 - Building repeatable ingestion procedures with `BULK INSERT`
@@ -22,7 +22,7 @@ The focus is the engineering work that sits behind reliable reporting: preservin
 - Separating ingestion, transformation, and analytical consumption
 - Producing business-ready SQL views from warehouse data
 
-## Architecture
+## 🏛️ Architecture
 
 ![Data Architecture](docs/Data%20Architecture.png)
 
@@ -59,7 +59,7 @@ ERP CSV ──────┘       │           │         │
 - Integrates CRM and ERP attributes into a reporting-ready structure.
 - Exposes business-facing views for downstream SQL and BI workloads.
 
-## Dimensional Model
+## 📊 Dimensional Model
 
 ![Data Model](docs/Data%20Model.png)
 
@@ -71,7 +71,7 @@ ERP CSV ──────┘       │           │         │
 
 The Gold layer follows a star-schema-oriented design so analytical queries can consume business entities without repeatedly traversing raw source tables.
 
-## Data Flow
+## 🔄 Data Flow
 
 ![Data Flow](docs/Data%20flow.png)
 
@@ -83,7 +83,7 @@ The Gold layer follows a star-schema-oriented design so analytical queries can c
 6. **Validate** keys, values, dates, and business rules.
 7. **Consume** Gold views for analytics and reporting.
 
-## Data Quality Framework
+## 🧪 Data Quality Framework
 
 The repository includes SQL validation for:
 
@@ -98,7 +98,7 @@ The repository includes SQL validation for:
 
 These checks are treated as part of the pipeline rather than an afterthought to reporting.
 
-## Engineering Implementation
+## ⚙️ Engineering Implementation
 
 ### Source Ingestion
 
@@ -120,7 +120,7 @@ These checks are treated as part of the pipeline rather than an afterthought to 
 
 Gold views integrate Silver data into a star-schema-style model designed for analytical SQL and BI consumption.
 
-## Repository Structure
+## 📁 Repository Structure
 
 ```text
 sql_datawarehouse_project/
@@ -141,7 +141,7 @@ sql_datawarehouse_project/
 └── LICENSE
 ```
 
-## Local Execution
+## 🚀 Local Execution
 
 ### Prerequisites
 
@@ -174,13 +174,13 @@ SELECT TOP 100 * FROM gold.dim_customers;
 SELECT TOP 100 * FROM gold.dim_products;
 ```
 
-## Engineering rationale
+## 💡 Engineering rationale
 
 A warehouse is more than a collection of SQL queries. The implementation covers the engineering boundaries that make analytical data trustworthy:
 
 **raw data preservation → controlled transformations → integrated business model → automated validation → analytics consumption**
 
-## Production Extensions
+## 🔮 Production Extensions
 
 A production evolution could add:
 
@@ -193,10 +193,14 @@ A production evolution could add:
 - CI/CD for SQL deployment
 - Metadata/catalog and lineage management
 
+## 👨‍💻 Portfolio
+
 **Manish Kallu** — Data engineering work focused on SQL, distributed processing, data pipelines, analytics platforms, and production-style data architecture.
 
 - GitHub: [manishkallu01-wq](https://github.com/manishkallu01-wq)
 - Email: manishkallu01@gmail.com
+
+## 📌 Project summary Project Description
 
 **Engineered a SQL Server data warehouse using Bronze–Silver–Gold architecture to ingest and integrate CRM/ERP data, implement cleansing and deduplication workflows, model analytical facts and dimensions, and enforce SQL-based data-quality validation for reporting-ready datasets.**
 
