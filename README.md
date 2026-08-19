@@ -20,7 +20,7 @@ Gold: customer and product dimensions + sales fact
 SQL quality checks and analytical queries
 ```
 
-![Architecture](docs/Data%20Architecture.png)
+![Architecture](assets/data-architecture.png)
 
 ## Implemented methodology
 
@@ -31,7 +31,7 @@ SQL quality checks and analytical queries
 | Gold | Star-schema views with surrogate keys |
 | Tests | Duplicate, null, domain, date, measure, and referential checks |
 
-![Dimensional model](docs/Data%20Model.png)
+![Dimensional model](assets/data-model.png)
 
 ## Repository layout
 
