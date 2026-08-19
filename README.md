@@ -209,3 +209,40 @@ A production evolution could add:
 ## License
 
 MIT License. See [LICENSE](LICENSE).
+
+## Reproducibility and acceptance criteria
+
+This project is considered reproducible when a reviewer can provision SQL Server, point the Bronze loader at the checked-in CSV sources, execute the numbered pipeline, and receive zero rows from every quality check.
+
+| Stage | Input | Output | Acceptance gate |
+|---|---|---|---|
+| Bootstrap | SQL Server instance | `DataWarehouse` + three schemas | Schemas exist |
+| Bronze | Six source CSV files | Source-aligned tables | Row counts are non-zero |
+| Silver | Bronze tables | Typed, standardized records | Silver quality queries return zero defects |
+| Gold | Silver tables | Customer/product dimensions and sales fact | Gold key and referential checks return zero defects |
+
+Run the scripts in this exact order:
+
+```text
+scripts/int_database.sql
+scripts/bronze/ddl_bronze.sql
+scripts/bronze/proc_load_bronze.sql
+EXEC bronze.load_bronze
+scripts/silver/ddl_silver.sql
+scripts/silver/proc_load_silver.sql
+EXEC silver.load_silver
+scripts/gold/ddl_gold.sql
+tests/quality_checks_silver.sql
+tests/quality_checks_gold.sql
+```
+
+Important: `scripts/int_database.sql` is destructive and recreates the database. The Bronze loader currently uses local SQL Server filesystem paths; update those six paths for your environment before execution. A production implementation should replace full refreshes with parameterized, audited, incremental loads.
+
+## Definition of done
+
+- Raw inputs remain immutable and traceable.
+- Transformations are deterministic and rerunnable.
+- Business grain is explicit: customer, product, and sales order line.
+- Dimension keys are unique and facts resolve to valid dimensions.
+- Quality checks return zero failing records before Gold is released.
+- README claims are limited to behavior implemented in this repository.
