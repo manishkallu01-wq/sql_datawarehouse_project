@@ -193,7 +193,7 @@ A production evolution could add:
 - CI/CD for SQL deployment
 - Metadata/catalog and lineage management
 
-**Manish Kallu** — Data Engineering portfolio focused on SQL, distributed processing, data pipelines, analytics platforms, and production-oriented data architecture.
+**Manish Kallu** — Data engineering work focused on SQL, distributed processing, data pipelines, analytics platforms, and production-style data architecture.
 
 - GitHub: [manishkallu01-wq](https://github.com/manishkallu01-wq)
 - Email: manishkallu01@gmail.com
